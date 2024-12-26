@@ -5,4 +5,13 @@
 
 :root {
   --primary-color: #6750A4;
+  --accent-color: #efe5fd;
+}
+
+html, body, .app-root {
+  height: 100%;
+}
+
+.app-root {
+  display: block;
 }
