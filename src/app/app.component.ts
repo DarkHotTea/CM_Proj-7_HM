@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { HomeComponent } from './home/home.component';
-import { RouterModule } from '@angular/router';
+import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HomeComponent, RouterModule],
+  imports: [ RouterModule, RouterLink, RouterOutlet],
   template: `
     <main class="h-full grid grid-rows-[auto_1fr]">
       <a [routerLink]="['/']">
