@@ -42,7 +42,12 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
           <input id="last-name" type="text" formControlName="lastName" />
           <label for="email">Email</label>
           <input id="email" type="email" formControlName="email" />
-          <button type="submit" class="primary py-2 px-8 text-white bg-violet-700 rounded-lg">Apply now</button>
+          <button
+            type="submit"
+            class="primary py-2 px-8 text-white bg-violet-700 rounded-lg"
+          >
+            Apply now
+          </button>
         </form>
       </section>
     </article>
@@ -60,9 +65,12 @@ export class DetailsComponent {
   });
 
   constructor() {
-    const housingLocationId = Number(this.route.snapshot.params['id']);
-    this.housingLocation =
-      this.housingService.getHousingLocationById(housingLocationId);
+    const housingLocationId = parseInt(this.route.snapshot.params['id'], 10);
+    this.housingService
+      .getHousingLocationById(housingLocationId)
+      .then((housingLocation) => {
+        this.housingLocation = housingLocation;
+      });
   }
   submitApplication() {
     this.housingService.submitApplication(
